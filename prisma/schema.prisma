@@ -1,0 +1,23 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Room {
+  id        String   @id
+  capacity  Int
+  createdAt DateTime @default(now())
+  guesses   Guess[]
+}
+
+model Guess {
+  id           Int    @id @default(autoincrement())
+  roomId       String
+  receiverName String
+  santaName    String
+  room         Room   @relation(fields: [roomId], references: [id])
+}

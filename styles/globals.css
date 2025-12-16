@@ -1,0 +1,120 @@
+:root {
+  --santa-red: #d42426;
+  --snow-white: #f8f9fa;
+  --tree-green: #165b33;
+  --gold: #f8b229;
+  --dark-green: #0b2e1a;
+  --bg-color: var(--snow-white);
+  --text-color: var(--dark-green);
+  --input-bg: #fff;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&family=Inter:wght@400;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  background-image: 
+    radial-gradient(circle at 10% 20%, #ffffff 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, #ffffff 0%, transparent 20%);
+  background-attachment: fixed;
+}
+
+h1, h2, h3 {
+  font-family: 'Mountains of Christmas', cursive;
+  color: var(--santa-red);
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border: 2px solid var(--tree-green);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: repeating-linear-gradient(
+    45deg,
+    var(--santa-red),
+    var(--santa-red) 10px,
+    var(--snow-white) 10px,
+    var(--snow-white) 20px
+  );
+}
+
+button {
+  background-color: var(--santa-red);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  background-color: #b01b1d;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+}
+
+input {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 1rem;
+  background-color: var(--input-bg);
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--santa-red);
+}
+
+.snow-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+  background-image: url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="%23dce" /></svg>'); 
+  /* Simple placeholder snowflake pattern */
+}
